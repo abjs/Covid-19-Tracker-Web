@@ -1,7 +1,6 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { parse } from "node-html-parser";
-import fetch from "node-fetch";
-export default async (request: VercelRequest, response: VercelResponse) => {
+const OneCounters =  async (request: NextApiRequest, response: NextApiResponse) => {
   const {country} = request.query;
   const res = await fetch(
       `https://www.worldometers.info/coronavirus/country/${country}/`
@@ -27,3 +26,4 @@ const getNumber = (data: string) => {
   return parseInt(number);
 };
 const isNumber = (data: string) => (data < "0" || data > "9" ? "" : data);
+export default OneCounters;

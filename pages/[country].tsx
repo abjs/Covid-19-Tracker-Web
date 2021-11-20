@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import LayoutComponent from "@components/layout.component";
+import { countryList } from "@helper/constants";
 interface Data {
   Cases: number;
   Deaths: number;
@@ -11,7 +12,7 @@ interface Data {
 }
 const Index: NextPage = () => {
   const { country } = useRouter().query;
-  const [data, setData] = useState<Data>(null);
+  const [data, setData] = useState<Data | null>(null);
   useEffect(() => {
     if (country) {
       fetch(`/api/${country}`)
@@ -22,7 +23,8 @@ const Index: NextPage = () => {
     }
   }, [country]);
   return (
-    <LayoutComponent title={country as string} isLoading={!data}>
+    // @ts-ignore
+    <LayoutComponent title={countryList[country]} isLoading={!data}>
       <div className="flex flex-col h-screen justify-center items-center">
         <h1>Cases of {country}</h1>
         <div>

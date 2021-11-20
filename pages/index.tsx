@@ -10,7 +10,7 @@ interface Data {
   Active: number;
 }
 const Index: NextPage = () => {
-  const [data, setData] = useState<Data>(null);
+  const [data, setData] = useState<Data | null>(null);
   const [country, setCountry] = useState<string>("");
   useEffect(() => {
     fetch("/api/")
@@ -59,17 +59,20 @@ const Index: NextPage = () => {
             >
               <option value="">All</option>
 
-              {
-                  Object.keys(countryList).map((country) => (
-                    <option value={country}> {countryList[country]}</option>
-                  ))
-              }
-
-    
+              {Object.keys(countryList).map((country) => (
+                <option key={country} value={country}>
+                  {
+                    //@ts-ignore
+                    countryList[country]
+                  }
+                </option>
+              ))}
             </select>
             {country !== "" && (
-              <Link href={`/${country}`} >
-                <a className="capitalize  ml-2 px-4 ring-1 ring-sky-700 rounded-sm">Get Details</a>
+              <Link href={`/${country}`}>
+                <a className="capitalize  ml-2 px-4 ring-1 ring-sky-700 rounded-sm">
+                  Get Details
+                </a>
               </Link>
             )}
           </div>

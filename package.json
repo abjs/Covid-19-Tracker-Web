@@ -1,23 +1,32 @@
 {
   "name": "covid-19-tracker",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "covid-19-tracker backend with ui",
+  "private": true,
+  "author": "Abin Joseph",
+  "license": "ISC",
   "scripts": {
     "dev": "next",
     "start": "next start",
     "build": "next build",
     "commit": "cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "lint": "next lint",
+    "prepare": "husky install"
   },
-  "author": "Abin Joseph",
-  "license": "ISC",
+  "dependencies": {
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
   "devDependencies": {
+    "@types/node": "16.11.9",
+    "@types/react": "17.0.35",
+    "eslint": "7",
+    "eslint-config-next": "12.0.4",
+    "typescript": "4.5.2",
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
-    "@types/node": "^16.11.9",
-    "@types/react": "^17.0.35",
-    "@vercel/node": "^1.12.1",
     "autoprefixer": "^10.4.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -25,14 +34,6 @@
     "node-html-parser": "^5.1.0",
     "postcss": "^8.3.11",
     "standard-version": "^9.3.2",
-    "tailwindcss": "^2.2.19",
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "next": "^12.0.4",
-    "node-fetch": "^3.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "swr": "^1.0.1"
+    "tailwindcss": "^2.2.19"
   }
 }
