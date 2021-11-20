@@ -1,14 +1,14 @@
 {
   "name": "covid-19-tracker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "commit":"cz",
-    "release":"standard-version"
+    "commit": "cz",
+    "release": "standard-version"
   },
   "author": "Abin Joseph",
   "license": "ISC",
